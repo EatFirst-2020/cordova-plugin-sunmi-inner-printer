@@ -47,5 +47,6 @@
     <source-file src="src/android/com/sunmi/trans/TransBean.aidl" target-dir="src/com/sunmi/trans/"/>
     <source-file src="src/android/woyou/aidlservice/jiuiv5/IWoyouService.aidl" target-dir="src/woyou/aidlservice/jiuiv5/"/>
     <source-file src="src/android/woyou/aidlservice/jiuiv5/ICallback.aidl" target-dir="src/woyou/aidlservice/jiuiv5/"/>
+    <source-file src="src/android/woyou/aidlservice/jiuiv5/ITax.aidl" target-dir="src/woyou/aidlservice/jiuiv5/"/>
   </platform>
 </plugin>

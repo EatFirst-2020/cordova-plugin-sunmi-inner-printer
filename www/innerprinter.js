@@ -1,7 +1,12 @@
 exec = require('cordova/exec');
 
 module.exports = {
-
+  hasPrinter: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "hasPrinter", []);
+  },
+  getServiceVersion: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getServiceVersion", []);
+  },
   printerInit: function (resolve, reject) {
     exec(resolve, reject, "Printer", "printerInit", []);
   },
@@ -14,8 +19,8 @@ module.exports = {
   getPrinterVersion: function (resolve, reject) {
     exec(resolve, reject, "Printer", "getPrinterVersion", []);
   },
-  hasPrinter: function (resolve, reject) {
-    exec(resolve, reject, "Printer", "hasPrinter", []);
+  getPrinterModal: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getPrinterModal", []);
   },
   getPrintedLength: function (resolve, reject) {
     exec(resolve, reject, "Printer", "getPrintedLength", []);
@@ -32,8 +37,11 @@ module.exports = {
   setFontName: function (typeface, resolve, reject) {
     exec(resolve, reject, "Printer", "setFontName", [typeface]);
   },
-  setFontSize: function (fontSize, resolve, reject) {
-    exec(resolve, reject, "Printer", "setFontSize", [fontSize]);
+  setFontSize: function (text, resolve, reject) {
+    exec(resolve, reject, "Printer", "setFontSize", [text]);
+  },
+  printText: function (fontSize, resolve, reject) {
+    exec(resolve, reject, "Printer", "printText", [fontSize]);
   },
   printTextWithFont: function (text, typeface, fontSize, resolve, reject) {
     exec(resolve, reject, "Printer", "printTextWithFont", [text, typeface, fontSize]);
@@ -53,8 +61,71 @@ module.exports = {
   printOriginalText: function (text, resolve, reject) {
     exec(resolve, reject, "Printer", "printOriginalText", [text]);
   },
-  printString: function (text, resolve, reject) {
-    exec(resolve, reject, "Printer", "printString", [text]);
+  commitPrinterBuffer: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "commitPrinterBuffer", []);
+  },
+  enterPrinterBuffer: function (clean, resolve, reject) {
+    exec(resolve, reject, "Printer", "enterPrinterBuffer", [clean]);
+  },
+  exitPrinterBuffer: function (commit, resolve, reject) {
+    exec(resolve, reject, "Printer", "exitPrinterBuffer", [commit]);
+  },
+  tax: function (base64Data, resolve, reject) {
+    exec(resolve, reject, "Printer", "tax", [base64Data]);
+  },
+  getPrinterFactory: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getPrinterFactory", []);
+  },
+  clearBuffer: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "clearBuffer", []);
+  },
+  commitPrinterBufferWithCallback: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "commitPrinterBufferWithCallback", []);
+  },
+  exitPrinterBufferWithCallback: function (commit, resolve, reject) {
+    exec(resolve, reject, "Printer", "exitPrinterBufferWithCallback", [commit]);
+  },
+  printColumnsString: function (colsTextArr, colsWidthArr, colsAlign, resolve, reject) {
+    exec(resolve, reject, "Printer", "printColumnsString", [colsTextArr, colsWidthArr, colsAlign]);
+  },
+  updatePrinterState: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "updatePrinterState", []);
+  },
+  printBitmapCustom: function (base64Data, width, height, type, resolve, reject) {
+    exec(resolve, reject, "Printer", "printBitmapCustom", [base64Data, width, height, type]);
+  },
+  getForcedDouble: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getForcedDouble", []);
+  },
+  isForcedAntiWhite: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "isForcedAntiWhite", []);
+  },
+  isForcedBold: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "isForcedBold", []);
+  },
+  isForcedUnderline: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "isForcedUnderline", []);
+  },
+  getForcedRowHeight: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getForcedRowHeight", []);
+  },
+  getFontName: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getFontName", []);
+  },
+  getPrinterDensity: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getPrinterDensity", []);
+  },
+  print2DCode: function (data, symbology, moduleSize, errorLevel, resolve, reject) {
+    exec(resolve, reject, "Printer", "print2DCode", [data, symbology, moduleSize, errorLevel]);
+  },
+  getPrinterPaper: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getPrinterPaper", []);
+  },
+  autoOutPaper: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "autoOutPaper", []);
+  },
+  setPrinterStyle: function (key, value, resolve, reject) {
+    exec(resolve, reject, "Printer", "setPrinterStyle", []);
   },
   printerStatusStartListener: function (onSuccess, onError) {
     exec(onSuccess, onError, "Printer", "printerStatusStartListener", []);
@@ -62,5 +133,4 @@ module.exports = {
   printerStatusStopListener: function () {
     exec(function () {}, function () {}, "Printer", "printerStatusStopListener", []);
   }
-
 }
