@@ -125,7 +125,22 @@ module.exports = {
     exec(resolve, reject, "Printer", "autoOutPaper", []);
   },
   setPrinterStyle: function (key, value, resolve, reject) {
-    exec(resolve, reject, "Printer", "setPrinterStyle", []);
+    exec(resolve, reject, "Printer", "setPrinterStyle", [key, value]);
+  },
+  cutPaper: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "cutPaper", []);
+  },
+  getCutPaperTimes: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getCutPaperTimes", []);
+  },
+  openDrawer: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "openDrawer", []);
+  },
+  getOpenDrawerTimes: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getOpenDrawerTimes", []);
+  },
+  getDrawerStatus: function (resolve, reject) {
+    exec(resolve, reject, "Printer", "getDrawerStatus", []);
   },
   printerStatusStartListener: function (onSuccess, onError) {
     exec(onSuccess, onError, "Printer", "printerStatusStartListener", []);
