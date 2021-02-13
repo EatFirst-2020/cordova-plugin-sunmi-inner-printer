@@ -217,6 +217,21 @@ public class Printer extends CordovaPlugin {
     } else if (action.equals("setPrinterStyle")) {
       setPrinterStyle(data.getInt(0), data.getInt(1), callbackContext);
       return true;
+    } else if (action.equals("cutPaper")) {
+      cutPaper(callbackContext);
+      return true;
+    } else if (action.equals("getCutPaperTimes")) {
+      getCutPaperTimes(callbackContext);
+      return true;
+    } else if (action.equals("openDrawer")) {
+      openDrawer(callbackContext);
+      return true;
+    } else if (action.equals("getOpenDrawerTimes")) {
+      getOpenDrawerTimes(callbackContext);
+      return true;
+    } else if (action.equals("getDrawerStatus")) {
+      getDrawerStatus(callbackContext);
+      return true;
     } else if (action.equals("printerStatusStartListener")) {
       printerStatusStartListener(callbackContext);
       return true;
@@ -874,4 +889,58 @@ public class Printer extends CordovaPlugin {
     receiver.stopReceiving();
   }
 
+  public void cutPaper(final CallbackContext callbackContext) {
+    final IWoyouService printerService = woyouService;
+    ThreadPoolManager.getInstance().executeTask(new Runnable() {
+      @Override
+      public void run() {
+        try {
+          printerService.cutPaper(newCallbackStub(callbackContext));
+        } catch (Exception e) {
+          callbackContext.error(e.getMessage());
+        }
+      }
+    });
+  }
+
+  public void getCutPaperTimes(final CallbackContext callbackContext) {
+    final IWoyouService printerService = woyouService;
+    try {
+      callbackContext.success(printerService.getCutPaperTimes());
+    } catch (Exception e) {
+      callbackContext.error(e.getMessage());
+    }
+  }
+
+  public void openDrawer(final CallbackContext callbackContext) {
+    final IWoyouService printerService = woyouService;
+    ThreadPoolManager.getInstance().executeTask(new Runnable() {
+      @Override
+      public void run() {
+        try {
+          printerService.openDrawer(newCallbackStub(callbackContext));
+        } catch (Exception e) {
+          callbackContext.error(e.getMessage());
+        }
+      }
+    });
+  }
+
+  public void getOpenDrawerTimes(final CallbackContext callbackContext) {
+    final IWoyouService printerService = woyouService;
+    try {
+      callbackContext.success(printerService.getOpenDrawerTimes());
+    } catch (Exception e) {
+      callbackContext.error(e.getMessage());
+    }
+  }
+
+  public void getDrawerStatus(final CallbackContext callbackContext) {
+    final IWoyouService printerService = woyouService;
+    try {
+      callbackContext.success(printerService.getDrawerStatus());
+    } catch (Exception e) {
+      callbackContext.error(e.getMessage());
+    }
+  }
 }

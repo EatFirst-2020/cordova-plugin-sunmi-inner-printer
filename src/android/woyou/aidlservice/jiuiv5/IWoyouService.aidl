@@ -341,4 +341,33 @@ interface IWoyouService
     */
     void setPrinterStyle(int key, int value);
 
+    /**
+    *   切纸
+	*   仅支持台式机带切⼑刀功能机器。
+    */
+    void cutPaper(in ICallback callback);
+
+    /**
+    *   获取切⼑刀次数
+	*   仅支持台式机带切⼑刀功能机器。
+    */
+    int getCutPaperTimes();
+
+    /**
+    *   打开钱箱
+	*   仅支持台式机带钱箱功能机器。
+    */
+    void openDrawer(in ICallback callback);
+
+    /**
+    *   获取钱箱累计打开次数
+	*   仅支持台式机带钱箱功能机器。
+    */
+    int getOpenDrawerTimes();
+
+    /**
+    *   获取当前的钱箱状态
+	*   仅支持台式机带钱箱功能机器。
+    */
+    int getDrawerStatus();
 }
